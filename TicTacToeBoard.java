@@ -22,10 +22,10 @@ class TicTacToeBoard{
     }
 
 
-    public int[][] getBoard() {
-        return board;
+    public int getCellContents(int r, int c) {
+        return board[r][c];
     }
-    public int getGameOver() {
+    public int getStatus() {
         return gameOver;
     }
 
@@ -36,7 +36,19 @@ class TicTacToeBoard{
 
     public String toString(){
         String retVal = "";
-        
+        for(int[] row:this.board){
+            for(int val:row){
+                if(val==0){
+                    retVal+=" ";
+                }else if (val==1){
+                    retVal +="X";
+                }else{
+                    retVal += "O";
+                }
+                
+
+            }
+        }
 
         return retVal;
     }
