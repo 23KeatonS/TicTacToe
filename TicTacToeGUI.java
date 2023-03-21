@@ -9,6 +9,7 @@ private static void Game2p(){
 f.remove(f);
 for(int x=0;x<3;x++){
     for(int y=0;y<3;y++){
+        String name=Integer.toString(x)+Integer.toString(y);
         JButton =new JButton();
         .setBackground(Color.WHITE);
         .setBorder(BorderFactory.createMatteBorder(5,5,5,5,Color.black));
