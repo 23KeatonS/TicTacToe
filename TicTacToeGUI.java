@@ -3,24 +3,55 @@ import java.awt.event.*;
 import java.awt.*;
 public class TicTacToeGUI{
 private static JFrame f=new JFrame("Tic Tac Toe");
-private static TicTacToeBoard board =new TicTacToeBoard();
+private static TicTacToeBoard board=new TicTacToeBoard();
+private static JPanel panel=new JPanel(new GridLayout(4,3));
+private static int playernum=1;
+private static int x=0;
+private static int y=0;
 
 private static void Game2p(){
-f.remove(f);
-for(int x=0;x<3;x++){
-    for(int y=0;y<3;y++){
-        String name=Integer.toString(x)+Integer.toString(y);
-        JButton =new JButton();
-        .setBackground(Color.WHITE);
-        .setBorder(BorderFactory.createMatteBorder(5,5,5,5,Color.black));
-                f.add();
-                .addActionListener(new ActionListener() { 
+f.setVisible(false);
+panel.removeAll();
+panel.validate();
+f.repaint();
+for(x=0;x<3;x++){
+    for(y=0;y<3;y++){
+        JButton a=new JButton();
+        a.setBackground(Color.WHITE);
+        a.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Color.gray));
+                panel.add(a);
+                a.addActionListener(new ActionListener() { 
                     public void actionPerformed(ActionEvent e) {
-
+                        if(board.isValidMove(x, y)){
+                        int r=0;
+                        int c=0;
+                        int player=0;
+                        if(a.getX()==189){
+                            r=2;
+                        }else if(a.getX()==95){
+                            r=1;
+                        }else{
+                            r=0;
+                        }
+                        if(a.getY()==180){
+                            c=2;
+                        }else if(a.getY()==90){
+                            c=1;
+                        }else{
+                            c=0;
+                        }
+                        if(playernum%2!=0){
+                            player=1;
+                        }else{
+                            player=2;
+                        }
+                        board.makeMove(r, c, player);
+                    }
                     }  
             });
         } 
     }
+    f.setVisible(true);
 }
 public static void start() {
         JButton play1=new JButton("1 player");
@@ -37,24 +68,23 @@ public static void start() {
             } 
         });
         play2.setBounds(0,0,100,100);
-        f.add(play1);
-        f.add(new JPanel());
-        f.add(play2);
-        f.add(new JPanel());
-        f.add(new JPanel());
-        f.add(new JPanel());
-        f.add(new JPanel());
-        f.add(new JPanel());
-        f.add(new JPanel());
-        f.add(new JPanel());
-        f.add(new JPanel());
-        f.add(new JPanel());
-
-
+        panel.setSize(300,400); 
+        panel.add(play1);
+        panel.add(new JPanel());
+        panel.add(play2);
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        f.add(panel);
 
 
         f.setSize(300,400); 
-        f.setLayout(new GridLayout(4,3));
         f.setVisible(true);
     }
 
@@ -62,6 +92,5 @@ public static void start() {
 
     public static void main(String[] args) {
         start();
-       
     }
 }
