@@ -49,9 +49,19 @@ for(int x=0;x<3;x++){
                         }else{
                             player=2;
                         }
-                        if(board.isValidMove(r, c)){
-                            board.makeMove(r, c, player);
+                        if(board.isValidMove(c, r)){
+                            playernum++;
+                            board.makeMove(c, r, player);
+                           if (board.getStatus()==0){
                             Game2p();
+                           }else if(board.getStatus()==1){
+                            JPanel win=new JPanel();
+                            win.add(new JLabel("Player 1 Wins!!!!!!!!"));
+                           }else{
+                            JPanel win=new JPanel();
+                            win.add(new JLabel("Player 2 Wins!!!!!!!!"));
+
+                           }
                     }
                     }  
             });
