@@ -1,12 +1,12 @@
 class TicTacToeBoard{
     
     private int[][] board;
-    private int gameOver;
+    private int status;
 
 
     public TicTacToeBoard(){
         this.board = new int [][] {{0,0,0},{0,0,0},{0,0,0}};
-        this.gameOver = 0;
+        this.status = 0;
         
         
 
@@ -26,7 +26,7 @@ class TicTacToeBoard{
         return board[r][c];
     }
     public int getStatus() {
-        return gameOver;
+        return status;
     }
 
 
@@ -35,17 +35,24 @@ class TicTacToeBoard{
 
 
     public String toString(){
-        String retVal = "";
-        for(int[] row:this.board){
-            for(int val:row){
-                if(val==0){
-                    retVal+=" ";
-                }else if (val==1){
-                    retVal +="X";
+        String retVal = "  A   B   C\n";
+        for(int j = 0;j<this.board.length;j++){
+            retVal+=j+1+" ";
+            for(int i=0;i<this.board[0].length;i++){
+                if(this.board[j][i]==0){
+                    retVal+="  ";
+                }else if (this.board[j][i]==1){
+                    retVal +="X ";
                 }else{
-                    retVal += "O";
+                    retVal += "O ";
                 }
-                
+                if(i!=2){
+                    retVal+="| ";
+                }  
+
+            }
+            if(j!=2){
+                retVal+="\n  ~~~~~~~~~~\n";
 
             }
         }
@@ -54,7 +61,10 @@ class TicTacToeBoard{
     }
 
 
-    
+    public static void main(String[] args) {
+        TicTacToeBoard board = new TicTacToeBoard();
+        System.out.println(board);
+    }
     
     
     
