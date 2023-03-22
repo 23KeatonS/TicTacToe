@@ -6,16 +6,14 @@ private static JFrame f=new JFrame("Tic Tac Toe");
 private static TicTacToeBoard board=new TicTacToeBoard();
 private static JPanel panel=new JPanel(new GridLayout(4,3));
 private static int playernum=1;
-private static int x=0;
-private static int y=0;
 
 private static void Game2p(){
 f.setVisible(false);
 panel.removeAll();
 panel.validate();
 f.repaint();
-for(x=0;x<3;x++){
-    for(y=0;y<3;y++){
+for(int x=0;x<3;x++){
+    for(int y=0;y<3;y++){
         JButton a=new JButton();
         if(board.getCellContents(x, y)==0){
             a.setText(null);
@@ -29,7 +27,6 @@ for(x=0;x<3;x++){
                 panel.add(a);
                 a.addActionListener(new ActionListener() { 
                     public void actionPerformed(ActionEvent e) {
-                        if(board.isValidMove(x, y)){
                         int r=0;
                         int c=0;
                         int player=0;
@@ -52,7 +49,9 @@ for(x=0;x<3;x++){
                         }else{
                             player=2;
                         }
-                        board.makeMove(r, c, player);
+                        if(board.isValidMove(r, c)){
+                            board.makeMove(r, c, player);
+                            Game2p();
                     }
                     }  
             });
