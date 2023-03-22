@@ -17,6 +17,13 @@ f.repaint();
 for(x=0;x<3;x++){
     for(y=0;y<3;y++){
         JButton a=new JButton();
+        if(board.getCellContents(x, y)==0){
+            a.setText(null);
+        }else if(board.getCellContents(x, y)==1){
+            a.setText("X");
+        }else{
+            a.setText("O");
+        }
         a.setBackground(Color.WHITE);
         a.setBorder(BorderFactory.createMatteBorder(3,3,3,3,Color.gray));
                 panel.add(a);
