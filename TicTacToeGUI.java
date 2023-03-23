@@ -7,7 +7,6 @@ public class TicTacToeGUI {
     private static TicTacToeBoard board = new TicTacToeBoard();
     private static JPanel panel = new JPanel(new GridLayout(4, 3));
     private static int playernum = 1;
-
     private static void Game2p() {
         f.setVisible(false);
         panel.removeAll();
@@ -56,12 +55,32 @@ public class TicTacToeGUI {
                             if (board.getStatus() == 0) {
                                 Game2p();
                             } else if (board.getStatus() == 1) {
-                                JPanel win = new JPanel();
-                                win.add(new JLabel("Player 1 Wins!!!!!!!!"));
-                            } else {
-                                JPanel win = new JPanel();
-                                win.add(new JLabel("Player 2 Wins!!!!!!!!"));
-
+                                panel.add(new JLabel("Player 1 Wins!!!!!!!!"));
+                                JButton restart=new JButton("Restart?");
+                                panel.add(restart);
+                                restart.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent e) {
+                                        start();
+                                    }
+                                });
+                            } else if (board.getStatus() == 2){
+                                panel.add(new JLabel("Player 2 Wins!!!!!!!!"));
+                                JButton restart=new JButton("Restart?");
+                                panel.add(restart);
+                                restart.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent e) {
+                                        start();
+                                    }
+                                });
+                            }else {
+                                panel.add(new JLabel("Draw!!!!!!!!!!!!!"));
+                                JButton restart=new JButton("Restart?");
+                                panel.add(restart);
+                                restart.addActionListener(new ActionListener() {
+                                    public void actionPerformed(ActionEvent e) {
+                                        start();
+                                    }
+                                });
                             }
                         }
                     }
@@ -72,6 +91,10 @@ public class TicTacToeGUI {
     }
 
     public static void start() {
+        f.setVisible(false);
+        panel.removeAll();
+        panel.validate();
+        f.repaint();
         JButton play1 = new JButton("1 player");
         play1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
