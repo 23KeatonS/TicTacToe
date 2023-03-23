@@ -1,13 +1,16 @@
 class TicTacToeBoard{
     
     private int[][] board;
-    private int status;
+    
     public static int turnCount = 0;
 
 
     public TicTacToeBoard(){
-        this.board = new int [][] {{0,0,0},{0,0,0},{0,0,0}};
-        this.status = 0;
+        this.board = new int [][] {
+        {0,0,0},
+        {0,0,0},
+        {0,0,0}};
+
         
         
         
