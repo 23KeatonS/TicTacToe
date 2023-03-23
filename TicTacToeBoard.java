@@ -142,7 +142,10 @@ class TicTacToeBoard{
     public static void main(String[] args) {
         /* 
         TicTacToeBoard board = new TicTacToeBoard();
-        System.out.println(board);
+        for(int i =0;i<100;i++){
+            System.out.println(board);
+        }
+        /*
         board.makeMove(0, 0, 1);
         System.out.println(board.getStatus());
         board.makeMove(0, 1, 1);
@@ -150,6 +153,7 @@ class TicTacToeBoard{
         board.makeMove(0, 2, 1);
         System.out.println(board.getStatus());
         */
+        
 
     }
     
