@@ -33,19 +33,21 @@ public class TicTacToeGUI {
                 panel.add(a);
                 a.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
+                        System.out.println(a.getX());
+                        System.out.println(a.getY());
                         int r = 0;
                         int c = 0;
                         int player = 0;
-                        if (a.getX() == 189) {
+                        if (a.getX() == 389) {
                             r = 2;
-                        } else if (a.getX() == 95) {
+                        } else if (a.getX() == 195) {
                             r = 1;
                         } else {
                             r = 0;
                         }
-                        if (a.getY() == 180) {
+                        if (a.getY() == 380) {
                             c = 2;
-                        } else if (a.getY() == 90) {
+                        } else if (a.getY() == 190) {
                             c = 1;
                         } else {
                             c = 0;
@@ -129,15 +131,15 @@ public class TicTacToeGUI {
 
             }
         });
-        play1.setBounds(0, 0, 100, 100);
+        play1.setBounds(0, 0, 200, 200);
         JButton play2 = new JButton("2 player");
         play2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Game2p();
             }
         });
-        play2.setBounds(0, 0, 100, 100);
-        panel.setSize(300, 300);
+        play2.setBounds(0, 0, 200, 200);
+        panel.setSize(600, 600);
         panel.add(play1);
         panel.add(new JPanel());
         panel.add(play2);
@@ -152,7 +154,7 @@ public class TicTacToeGUI {
         panel.add(new JPanel());
         f.add(panel);
 
-        f.setSize(300, 400);
+        f.setSize(600, 800);
         f.setVisible(true);
     }
 
