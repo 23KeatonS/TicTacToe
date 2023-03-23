@@ -33,8 +33,6 @@ public class TicTacToeGUI {
                 panel.add(a);
                 a.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println(a.getX());
-                        System.out.println(a.getY());
                         int r = 0;
                         int c = 0;
                         int player = 0;
