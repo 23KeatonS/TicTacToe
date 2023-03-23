@@ -68,7 +68,7 @@ class TicTacToeBoard{
         if(threeInARow(player, 0, 2, 1, 0)){
             return true;
         }
-        if(threeInARow(player, 2, 0, -1, 0)){
+        if(threeInARow(player, 2, 0, -1, 1)){
             return true;
         }
         
