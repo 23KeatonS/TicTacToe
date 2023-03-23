@@ -23,7 +23,7 @@ class TicTacToeConsole{
         System.out.println(" Beginning...");
     }
 
-    private static void p1InvalidInput(String p1move){
+    private static boolean p1ValidInput(String p1move){
         while (!p1move.equals("a1") && !p1move.equals("b1") && !p1move.equals("c1") &&
             !p1move.equals("1a") && !p1move.equals("1b") && !p1move.equals("1c") &&
             !p1move.equals("a2") && !p1move.equals("b2") && !p1move.equals("c2") &&
@@ -31,8 +31,9 @@ class TicTacToeConsole{
             !p1move.equals("a3") && !p1move.equals("b3") && !p1move.equals("c3") &&
             !p1move.equals("3a") && !p1move.equals("3b") && !p1move.equals("3c") ){
                 System.out.println("Invalid Input. Try again");
-                p1move = usr.nextLine().toLowerCase();
+                p1move = usr.nextLine().toLowerCase(); 
             }
+        return true;
     }
     
     public static void main(String args[]){
@@ -46,7 +47,7 @@ class TicTacToeConsole{
         System.out.println("You are player 1. Make your move.");
         String p1move = usr.nextLine().toLowerCase();
 
-        p1InvalidInput(p1move);
+        System.out.println(p1ValidInput(p1move));
         System.out.println("next");
         
 
