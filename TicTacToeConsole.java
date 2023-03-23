@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 class TicTacToeConsole{
     private static Scanner usr = new Scanner(System.in); 
-    // static boolean answer = false;
     
     private static void promptStart() {
         System.out.println("Welcome to TicTacToe \n Begin? y/n");
@@ -24,16 +23,15 @@ class TicTacToeConsole{
         System.out.println(" Beginning...");
     }
 
-    private static boolean p1InvalidInput(String p1move){
-        if (!p1move.equals("a1") && !p1move.equals("b1") && !p1move.equals("c1") &&
+    private static void p1InvalidInput(String p1move){
+        while (!p1move.equals("a1") && !p1move.equals("b1") && !p1move.equals("c1") &&
             !p1move.equals("1a") && !p1move.equals("1b") && !p1move.equals("1c") &&
             !p1move.equals("a2") && !p1move.equals("b2") && !p1move.equals("c2") &&
             !p1move.equals("2a") && !p1move.equals("2b") && !p1move.equals("2c") &&
             !p1move.equals("a3") && !p1move.equals("b3") && !p1move.equals("c3") &&
             !p1move.equals("3a") && !p1move.equals("3b") && !p1move.equals("3c") ){
-                return true;
-            }else{
-                return false;
+                System.out.println("Invalid Input. Try again");
+                p1move = usr.nextLine().toLowerCase();
             }
     }
     
@@ -47,15 +45,8 @@ class TicTacToeConsole{
 
         System.out.println("You are player 1. Make your move.");
         String p1move = usr.nextLine().toLowerCase();
-        // answer = true;
-        while (p1InvalidInput(p1move)){
-            System.out.println("Invalid Input. Try again");
-            p1move = usr.nextLine().toLowerCase();
-            if (!p1InvalidInput(p1move)){
-                break;
-            }
 
-        }
+        p1InvalidInput(p1move);
         System.out.println("next");
         
 
