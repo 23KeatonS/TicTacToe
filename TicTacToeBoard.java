@@ -2,7 +2,7 @@ class TicTacToeBoard{
     
     private int[][] board;
     
-    public static int turnCount = 0;
+    private int turnCount;
 
 
     public TicTacToeBoard(){
@@ -10,6 +10,7 @@ class TicTacToeBoard{
         {0,0,0},
         {0,0,0},
         {0,0,0}};
+        turnCount = 0;
 
         
         
