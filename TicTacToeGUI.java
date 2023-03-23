@@ -55,32 +55,53 @@ public class TicTacToeGUI {
                             if (board.getStatus() == 0) {
                                 Game2p();
                             } else if (board.getStatus() == 1) {
+                                f.setVisible(false);
+                                panel.removeAll();
+                                panel.validate();
+                                f.repaint();
                                 panel.add(new JLabel("Player 1 Wins!!!!!!!!"));
                                 JButton restart=new JButton("Restart?");
                                 panel.add(restart);
                                 restart.addActionListener(new ActionListener() {
                                     public void actionPerformed(ActionEvent e) {
                                         start();
+                                        board = new TicTacToeBoard();
+                                        playernum = 1;
                                     }
                                 });
+                                f.setVisible(true);
                             } else if (board.getStatus() == 2){
+                                f.setVisible(false);
+                                panel.removeAll();
+                                panel.validate();
+                                f.repaint();
                                 panel.add(new JLabel("Player 2 Wins!!!!!!!!"));
                                 JButton restart=new JButton("Restart?");
                                 panel.add(restart);
                                 restart.addActionListener(new ActionListener() {
                                     public void actionPerformed(ActionEvent e) {
                                         start();
+                                        board = new TicTacToeBoard();
+                                        playernum = 1;
                                     }
                                 });
+                                f.setVisible(true);
                             }else {
+                                f.setVisible(false);
+                                panel.removeAll();
+                                panel.validate();
+                                f.repaint();
                                 panel.add(new JLabel("Draw!!!!!!!!!!!!!"));
                                 JButton restart=new JButton("Restart?");
                                 panel.add(restart);
                                 restart.addActionListener(new ActionListener() {
                                     public void actionPerformed(ActionEvent e) {
                                         start();
+                                        board = new TicTacToeBoard();
+                                        playernum = 1;
                                     }
                                 });
+                                f.setVisible(true);
                             }
                         }
                     }
@@ -109,7 +130,7 @@ public class TicTacToeGUI {
             }
         });
         play2.setBounds(0, 0, 100, 100);
-        panel.setSize(300, 400);
+        panel.setSize(300, 300);
         panel.add(play1);
         panel.add(new JPanel());
         panel.add(play2);
