@@ -61,6 +61,7 @@ class TicTacToeConsole{
         return r;
     }
     
+    
 
     public static void main(String args[]){
 
@@ -69,16 +70,36 @@ class TicTacToeConsole{
         TicTacToeBoard board = new TicTacToeBoard();
         System.out.println(board);
 
-        System.out.println("You are player 1. Make your move.");
-        String move = usr.nextLine().toLowerCase();
+        while (board.getStatus()==0){
+            System.out.println("Player 1. Make your move.");
+            String move = usr.nextLine().toLowerCase();
+    
+    
+            while (!(validInput(move) && board.isValidMove(r(move), c(move)))){
+                System.out.println("Invalid input. Try again.");
+                move = usr.nextLine().toLowerCase();
+            }
 
-
-        if(validInput(move) && board.isValidMove(r(move), c(move))){
-            System.out.println("next");
-            System.out.println(r(move));
-            System.out.println(c(move));
+            board.makeMove(r(move), c(move), 1);
             System.out.println(board);
+            
+    
+            System.out.println("Player 2. Make your move.");
+            move = usr.nextLine().toLowerCase();
+            while (!(validInput(move) && board.isValidMove(r(move), c(move)))){
+                System.out.println("Invalid input. Try again.");
+                move = usr.nextLine().toLowerCase();
+            }
+
+            board.makeMove(r(move), c(move), 2);
+            System.out.println(board);
+
         }
+
+        
+
+
+
 
 
 
