@@ -8,6 +8,7 @@ public class TicTacToeGUI {
     private static JPanel panel = new JPanel(new GridLayout(4, 3));
     private static JLabel label = new JLabel();
     private static void Game2p() {
+        label.setFont(new Font("L", Font.BOLD, 30));
         panel.setVisible(false);
         panel.removeAll();
         panel.validate();
