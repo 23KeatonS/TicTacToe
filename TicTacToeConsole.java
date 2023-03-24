@@ -36,7 +36,6 @@ class TicTacToeConsole{
         return true;
     }
 
-
     private static int c(String move){
         int c;
         if (move.indexOf("a") != -1){
@@ -61,8 +60,6 @@ class TicTacToeConsole{
         return r;
     }
     
-    
-
     public static void main(String args[]){
 
         promptStart();
@@ -82,6 +79,12 @@ class TicTacToeConsole{
 
             board.makeMove(r(move), c(move), 1);
             System.out.println(board);
+            if (board.getStatus() == 1){
+                break;
+            }
+            if (board.getStatus() == -1){
+                break;
+            }
             
     
             System.out.println("Player 2. Make your move.");
@@ -93,18 +96,16 @@ class TicTacToeConsole{
 
             board.makeMove(r(move), c(move), 2);
             System.out.println(board);
+            
 
         }
 
-        
-
-
-
-
-
-
-
+        if (board.getStatus() == 1){
+            System.out.println("Player 1 wins!! Good job, I am proud of you.");
+        }else if (board.getStatus() == 2){
+            System.out.println("Player 2 wins!! Good job, I am proud of you.");
+        }else{
+            System.out.println("Tie!! You are both losers.");
+        }
     }
 }
-
-
