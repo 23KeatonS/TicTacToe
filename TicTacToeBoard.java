@@ -21,7 +21,7 @@ class TicTacToeBoard{
     }
 
     public boolean isValidMove(int r, int c){
-        return (this.board[r][c]==0);
+        return (this.board[r][c]==0); // if space is not already owned
     }
 
 
@@ -43,28 +43,28 @@ class TicTacToeBoard{
 
 
     private boolean playerWon(int player){
-        if(threeInARow(player,0,0,1,0)){
+        if(threeInARow(player,0,0,1,0)){ // first row
             return true;
         }
-        if(threeInARow(player, 0, 0, 0, 1)){
+        if(threeInARow(player, 0, 0, 0, 1)){ // first column
             return true;
         }
-        if(threeInARow(player, 0, 0, 1, 1)){
+        if(threeInARow(player, 0, 0, 1, 1)){ // first diagonal
             return true;
         }
-        if(threeInARow(player,1,0,0,1)){
+        if(threeInARow(player,1,0,0,1)){ // second column
             return true;
         }
-        if(threeInARow(player, 2, 0, 0, 1)){
+        if(threeInARow(player, 2, 0, 0, 1)){ // thrid column
             return true;
         }
-        if(threeInARow(player, 0, 1, 1, 0)){
+        if(threeInARow(player, 0, 1, 1, 0)){ // second row
             return true;
         }
-        if(threeInARow(player, 0, 2, 1, 0)){
+        if(threeInARow(player, 0, 2, 1, 0)){ // third row
             return true;
         }
-        if(threeInARow(player, 2, 0, -1, 1)){
+        if(threeInARow(player, 2, 0, -1, 1)){ // second diagonal
             return true;
         }
         
@@ -84,14 +84,14 @@ class TicTacToeBoard{
     }
     public int getStatus() {
        if(playerWon(1)){
-        return 1;
+        return 1; // player 1 wins
        } else if(playerWon(2)){
-        return 2;
+        return 2; // player 2 wins
        }
        if(turnCount>=9){
-        return -1;
+        return -1; // there is a tie
        }else{
-        return 0;
+        return 0; // the game is still ongoing
        }
     
     
