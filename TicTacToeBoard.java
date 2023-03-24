@@ -11,11 +11,6 @@ class TicTacToeBoard{
         {0,0,0},
         {0,0,0}};
         turnCount = 0;
-        
-
-        
-        
-        
 
     }
 
@@ -31,7 +26,7 @@ class TicTacToeBoard{
 
 
 
-    public boolean threeInARow(int player, int startC,int startR, int dx, int dy){
+    private boolean threeInARow(int player, int startC,int startR, int dx, int dy){
         for(int i =0;i<3;i++){
             if(this.board[startR][startC]!=player){
                 return false;
