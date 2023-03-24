@@ -1,7 +1,6 @@
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
-
 public class TicTacToeGUI {
     private static JFrame f = new JFrame("Tic Tac Toe");
     private static TicTacToeBoard board = new TicTacToeBoard();
@@ -118,7 +117,6 @@ public class TicTacToeGUI {
         panel.add(label);
         panel.setVisible(true);
     }
-
     public static void start() {
         f.setVisible(false);
         panel.removeAll();
@@ -156,7 +154,6 @@ public class TicTacToeGUI {
         f.setSize(600, 800);
         f.setVisible(true);
     }
-
     public static void main(String[] args) {
         start();
     }
