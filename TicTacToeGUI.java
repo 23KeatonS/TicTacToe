@@ -130,11 +130,11 @@ public class TicTacToeGUI {
         });
         play2.setBounds(0, 0, 200, 200);
         panel.setSize(600, 600);
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        panel.add(new JPanel());
+        panel.add(new JPanel());
         panel.add(play2);
-        panel.add(new JPanel());
-        panel.add(new JPanel());
-        panel.add(new JPanel());
-        panel.add(new JPanel());
         panel.add(new JPanel());
         panel.add(new JPanel());
         panel.add(new JPanel());
