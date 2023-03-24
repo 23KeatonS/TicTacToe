@@ -6,12 +6,19 @@ public class TicTacToeGUI {
     private static JFrame f = new JFrame("Tic Tac Toe");
     private static TicTacToeBoard board = new TicTacToeBoard();
     private static JPanel panel = new JPanel(new GridLayout(4, 3));
-    private static int playernum = 1;
+    private static JLabel label = new JLabel();
     private static void Game2p() {
-        f.setVisible(false);
+        label.setFont(new Font("L", Font.BOLD, 30));
+        panel.setVisible(false);
         panel.removeAll();
         panel.validate();
         f.repaint();
+        String move="";
+        if (board.getTurnCount() % 2 == 0) {
+            move = "X";
+        } else {
+            move = "O";
+        }
         for (int x = 0; x < 3; x++) {
             for (int y = 0; y < 3; y++) {
                 JButton a = new JButton();
@@ -30,85 +37,86 @@ public class TicTacToeGUI {
                         int r = 0;
                         int c = 0;
                         int player = 0;
-                        if (a.getX() == 189) {
+                        if (a.getX() == 389) {
                             r = 2;
-                        } else if (a.getX() == 95) {
+                        } else if (a.getX() == 195) {
                             r = 1;
                         } else {
                             r = 0;
                         }
-                        if (a.getY() == 180) {
+                        if (a.getY() == 380) {
                             c = 2;
-                        } else if (a.getY() == 90) {
+                        } else if (a.getY() == 190) {
                             c = 1;
                         } else {
                             c = 0;
                         }
-                        if (playernum % 2 != 0) {
+                        if (board.getTurnCount() % 2 == 0) {
                             player = 1;
                         } else {
                             player = 2;
                         }
                         if (board.isValidMove(c, r)) {
-                            playernum++;
                             board.makeMove(c, r, player);
                             if (board.getStatus() == 0) {
                                 Game2p();
                             } else if (board.getStatus() == 1) {
-                                f.setVisible(false);
+                                panel.setVisible(false);
                                 panel.removeAll();
                                 panel.validate();
-                                f.repaint();
-                                panel.add(new JLabel("Player 1 Wins!!!!!!!!"));
+                                panel.repaint();
+                                label.setText("Player 1 Wins!!!!!!!!");
+                                panel.add(label);
                                 JButton restart=new JButton("Restart?");
                                 panel.add(restart);
                                 restart.addActionListener(new ActionListener() {
                                     public void actionPerformed(ActionEvent e) {
                                         start();
                                         board = new TicTacToeBoard();
-                                        playernum = 1;
                                     }
                                 });
-                                f.setVisible(true);
+                                panel.setVisible(true);
                             } else if (board.getStatus() == 2){
-                                f.setVisible(false);
+                                panel.setVisible(false);
                                 panel.removeAll();
                                 panel.validate();
                                 f.repaint();
-                                panel.add(new JLabel("Player 2 Wins!!!!!!!!"));
+                                label.setText("Player 2 Wins!!!!!!!!");
+                                panel.add(label);
                                 JButton restart=new JButton("Restart?");
                                 panel.add(restart);
                                 restart.addActionListener(new ActionListener() {
                                     public void actionPerformed(ActionEvent e) {
                                         start();
                                         board = new TicTacToeBoard();
-                                        playernum = 1;
                                     }
                                 });
-                                f.setVisible(true);
+                                panel.setVisible(true);
                             }else {
-                                f.setVisible(false);
+                                panel.setVisible(false);
                                 panel.removeAll();
                                 panel.validate();
                                 f.repaint();
-                                panel.add(new JLabel("Draw!!!!!!!!!!!!!"));
+                                label.setText("Draw!!!!!!!!");
+                                panel.add(label);
                                 JButton restart=new JButton("Restart?");
                                 panel.add(restart);
                                 restart.addActionListener(new ActionListener() {
                                     public void actionPerformed(ActionEvent e) {
                                         start();
                                         board = new TicTacToeBoard();
-                                        playernum = 1;
                                     }
                                 });
-                                f.setVisible(true);
+                                panel.setVisible(true);
                             }
                         }
                     }
                 });
             }
         }
-        f.setVisible(true);
+        label.setText(move+"'s Turn");
+        panel.add(label);
+        panel.setVisible(true);
     }
 
     public static void start() {
@@ -122,15 +130,15 @@ public class TicTacToeGUI {
 
             }
         });
-        play1.setBounds(0, 0, 100, 100);
+        play1.setBounds(0, 0, 200, 200);
         JButton play2 = new JButton("2 player");
         play2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 Game2p();
             }
         });
-        play2.setBounds(0, 0, 100, 100);
-        panel.setSize(300, 300);
+        play2.setBounds(0, 0, 200, 200);
+        panel.setSize(600, 600);
         panel.add(play1);
         panel.add(new JPanel());
         panel.add(play2);
@@ -145,7 +153,7 @@ public class TicTacToeGUI {
         panel.add(new JPanel());
         f.add(panel);
 
-        f.setSize(300, 400);
+        f.setSize(600, 800);
         f.setVisible(true);
     }
 
