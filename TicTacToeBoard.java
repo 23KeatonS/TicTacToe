@@ -21,7 +21,7 @@ class TicTacToeBoard{
     }
 
     public boolean isValidMove(int r, int c){
-        return (this.board[r][c]==0); // if space is not already owned
+        return (this.board[r][c]==0); // returns true or false for if the space is not owned
     }
 
 
