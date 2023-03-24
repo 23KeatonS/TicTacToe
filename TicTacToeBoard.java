@@ -40,8 +40,6 @@ class TicTacToeBoard{
 
 
 
-
-
     private boolean playerWon(int player){
         if(threeInARow(player,0,0,1,0)){ // first row
             return true;
@@ -75,13 +73,11 @@ class TicTacToeBoard{
     }
 
 
-
-
-
-
     public int getCellContents(int r, int c) {
         return board[r][c];
     }
+
+
     public int getStatus() {
        if(playerWon(1)){
         return 1; // player 1 wins
@@ -94,17 +90,12 @@ class TicTacToeBoard{
         return 0; // the game is still ongoing
        }
     
-    
-       
     }
+
+
     public int getTurnCount() {
         return turnCount;
     }
-
-
-
-
-
 
 
     public String toString(){
