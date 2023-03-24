@@ -23,21 +23,46 @@ class TicTacToeConsole{
         System.out.println(" Beginning...");
     }
 
-    private static boolean p1ValidInput(String p1move){
-        while (!p1move.equals("a1") && !p1move.equals("b1") && !p1move.equals("c1") &&
-            !p1move.equals("1a") && !p1move.equals("1b") && !p1move.equals("1c") &&
-            !p1move.equals("a2") && !p1move.equals("b2") && !p1move.equals("c2") &&
-            !p1move.equals("2a") && !p1move.equals("2b") && !p1move.equals("2c") &&
-            !p1move.equals("a3") && !p1move.equals("b3") && !p1move.equals("c3") &&
-            !p1move.equals("3a") && !p1move.equals("3b") && !p1move.equals("3c") ){
+    private static boolean validInput(String move){
+        while (!move.equals("a1") && !move.equals("b1") && !move.equals("c1") &&
+            !move.equals("1a") && !move.equals("1b") && !move.equals("1c") &&
+            !move.equals("a2") && !move.equals("b2") && !move.equals("c2") &&
+            !move.equals("2a") && !move.equals("2b") && !move.equals("2c") &&
+            !move.equals("a3") && !move.equals("b3") && !move.equals("c3") &&
+            !move.equals("3a") && !move.equals("3b") && !move.equals("3c") ){
                 System.out.println("Invalid Input. Try again");
-                p1move = usr.nextLine().toLowerCase(); 
+                move = usr.nextLine().toLowerCase(); 
             }
         return true;
     }
-    
-    public static void main(String args[]){
 
+
+    private static int c(String move){
+        int c;
+        if (move.indexOf("a") != -1){
+            c = 0;
+        }else if (move.indexOf("b") != -1){
+            c = 1;
+        }else{
+            c = 2;
+        }
+        return c;
+    }
+
+    private static int r(String move){
+        int r;
+        if (move.indexOf("1") != -1){
+            r = 0;
+        }else if (move.indexOf("2") != -1){
+            r = 1;
+        }else{
+            r = 2;
+        }
+        return r;
+    }
+    
+
+    public static void main(String args[]){
 
         promptStart();
 
@@ -45,11 +70,18 @@ class TicTacToeConsole{
         System.out.println(board);
 
         System.out.println("You are player 1. Make your move.");
-        String p1move = usr.nextLine().toLowerCase();
+        String move = usr.nextLine().toLowerCase();
 
-        System.out.println(p1ValidInput(p1move));
-        System.out.println("next");
-        
+
+        if(validInput(move) && board.isValidMove(r(move), c(move))){
+            System.out.println("next");
+            System.out.println(r(move));
+            System.out.println(c(move));
+            System.out.println(board);
+        }
+
+
+
 
     }
 }
