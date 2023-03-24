@@ -122,13 +122,6 @@ public class TicTacToeGUI {
         panel.removeAll();
         panel.validate();
         f.repaint();
-        JButton play1 = new JButton("1 player");
-        play1.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-        play1.setBounds(0, 0, 200, 200);
         JButton play2 = new JButton("2 player");
         play2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -137,9 +130,9 @@ public class TicTacToeGUI {
         });
         play2.setBounds(0, 0, 200, 200);
         panel.setSize(600, 600);
-        panel.add(play1);
-        panel.add(new JPanel());
         panel.add(play2);
+        panel.add(new JPanel());
+        panel.add(new JPanel());
         panel.add(new JPanel());
         panel.add(new JPanel());
         panel.add(new JPanel());
